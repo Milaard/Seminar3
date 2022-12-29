@@ -3,21 +3,51 @@
     padding: 0;
     outline: 0;
     box-sizing: border-box;
-    /* font-family: 'Open Sans', sans-serif;
-    font-family: 'Roboto', sans-serif; */
+}
+
+@import "vars";
+
+@import "header";
+
+@mixin brd ($brd) {
+    border-radius: $brd;
+    -webkit-border-radius: $brd;
+    -moz-border-radius: $brd;
+}
+
+@mixin txt ($fw, $fs, $lh, $ctxt){
+    font-weight: $fw;
+    font-size: $fs;
+    line-height: $lh;
+    color: $ctxt;
+    font-family: 'Open Sans';
+}
+
+.margin {
+    @include txt (600, 16px, 0, 0);
+    padding: 40px 20px;
+    text-decoration: none;
+    font-style: normal;
+    margin-right: 5px;
+}
+
+@mixin button ($br,$pd, $g, $fw, $fs, $lh, $ctxt, $mt){
+    border-radius: $br;
+    padding: $pd;
+    gap: $g;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: $fw;
+    font-size: $fs;
+    line-height: $lh;
+    color: $ctxt;
+    margin-top: $mt;
+    background: $color_button;
 }
 
 body {
     background-color: #08101E;
 }
-
-header {
-    background-color: #0A121F;
-    height: 100px;
-    margin-bottom: 160px;
-}
-
-$color_button: rgb(12, 112, 112);
 
 .container {
     width: 1146px;
@@ -25,60 +55,37 @@ $color_button: rgb(12, 112, 112);
 }
 
 .menu_link {
-    padding: 40px 20px;
-    text-decoration: none;
-    color: #FFFFFF;
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-
-
+    @extend .margin;
+    &__hover:hover {
+        background-color: #FFFFFF;
+         color: $color_button;
+    }
 }
 
 .title3 {
-    font-family: 'Open Sans';
+    @include txt(600, 18px, 160%, $color_button);
     font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 160%;
     text-transform: uppercase;
-    color: #3A68B8;
     margin-bottom: 10px;
 }
 
 .main_heading {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 55px;
-    line-height: 130%;
-    color: #FFFFFF;
+    @include txt (800, 55px, 130%, $ctxt);
     margin-bottom: 40px;
 }
 
 .main_dc {
-    font-family: 'Open Sans';
+    @include txt (600, 18px, 160%, $ctxt);
     font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 160%;
-    color: #FFFFFF;
     opacity: 0.7;
 }
 
 .index_button {
-    background: $color_button;
-    border-radius: 5px;
-    padding: 15px 30px;
-    gap: 10px;
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 27px;
-    color: #FFFFFF;
-    margin-top: 50px;
+    @include button (5px, 15px 30px, 10px, 600, 20px, 27px, $ctxt, 50px);
+    &__hover:hover {
+           background-color: #FFFFFF;
+            color: $color_button;
+    }
 }
 
 .logobar {
@@ -100,45 +107,30 @@ $color_button: rgb(12, 112, 112);
     width: 604px;
 }
 
-
-
-
 h2 {
+    @include txt (700, 40px, 130%, $ctxt);
     width: 484px;
-    font-family: 'Open Sans';
     font-style: normal;
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 130%;
-    color: #FFFFFF;
     margin-bottom: 30px;
 }
 
 .paragraph {
+    @include txt (600, 16px, 160%, $ctxt);
     padding-bottom: 65px;
     width: 460px;
-    font-family: 'Open Sans';
     font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 160%;
-    color: #FFFFFF;
     opacity: 0.7;
 }
 
 .index_two {
-    padding: 15px 30px;
-    background: #3A68B8;
-    border-radius: 5px;
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 22px;
-    color: #FFFFFF;
+     @include button (5px,15px 30px, 0, 600, 16px, 22px, $ctxt, 0);
     flex: none;
     order: 0;
     flex-grow: 0;
+    &__hover:hover {
+        background-color: #FFFFFF;
+         color: $color_button;
+    }
 }
 
 .sectionTwo {
@@ -152,19 +144,16 @@ h2 {
 }
 
 h3 {
-    font-family: 'Open Sans';
+    @include  txt (700, 25px, 125%, $ctxt);
     font-style: normal;
-    font-weight: 700;
-    font-size: 25px;
-    line-height: 125%;
     text-align: center;
-    color: #FFFFFF;
     opacity: 0.7;
     margin-top: 30px;
     margin-bottom: 30px;
 }
 
 .item {
+    @include brd(30px);
     width: 362px;
     background: #132035;
     border-radius: 10px;
@@ -173,12 +162,8 @@ h3 {
 }
 
 .paragraph2 {
-    font-family: 'Open Sans';
+    @include txt (600, 16px, 160%, $ctxt);
     font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 160%;
-    color: #FFFFFF;
     opacity: 0.7;
 }
 
@@ -189,8 +174,6 @@ h3 {
     padding: 30px;
     text-align: center;
     margin-top: 30px;
-
-
 }
 
 .block {
@@ -201,17 +184,13 @@ h3 {
     margin-bottom: 257px;
 }
 
+
 .paragraph3 {
+    @include txt (600, 16px, 160%, $ctxt);
     width: 460px;
-    font-family: 'Open Sans';
     font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 160%;
-    color: #FFFFFF;
     opacity: 0.7;
     margin: 20px 0;
-
 }
 
 .aboutH2 {
@@ -248,31 +227,22 @@ footer {
 }
 
 .info {
+    @include txt (500, 16px, 19px, $ctxt);
     font-family: 'Roboto';
     font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-    color: #FFFFFF;
-}
+    }
 
 p {
+    @include txt (500, 14px, 16px, $ctxt);
     font-family: 'Roboto';
     font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 16px;
-    color: #FFFFFF;
 }
 
 .lorem {
+    @include txt (100, 14px, 16px, $ctxt);
     width: 261px;
     font-family: 'Roboto';
-    font-style: italic;
-    font-weight: 100;
-    font-size: 14px;
-    line-height: 16px;
-    color: #FFFFFF;
+    font-style: italic; 
     opacity: 0.6;
     flex: none;
     order: 0;
@@ -284,30 +254,4 @@ p {
     margin-top: 24px;
 }
 
-summary:hover {
-    background-color: #FFFFFF;
-    border: 1px solid darkviolet;
-    color: darkviolet;
-    border-radius: 10px;
-}
 
-  summary {
-    border: 1px solid transparent;
-    display: block;
-
-  }
-  
-    summary::-webkit-details-marker {
-    display: none;
-  }
-  
-  summary::after {
-    content: '\25B6';
-    padding-right: 0.5em;
-    margin-left: 10px;
-  }
-  
-  details[open] > summary::after {
-    content: '\25BC';
-    color: red;
-  }

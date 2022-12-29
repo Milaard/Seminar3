@@ -5,6 +5,79 @@
   box-sizing: border-box;
 }
 
+@-webkit-keyframes myAnim {
+  0% {
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    transform: scale(1);
+    transform-origin: center center;
+  }
+  10% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    transform: scale(0.91);
+  }
+  17% {
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    transform: scale(0.98);
+  }
+  33% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    transform: scale(0.87);
+  }
+  45% {
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    transform: scale(1);
+  }
+}
+
+@keyframes myAnim {
+  0% {
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    transform: scale(1);
+    transform-origin: center center;
+  }
+  10% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    transform: scale(0.91);
+  }
+  17% {
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    transform: scale(0.98);
+  }
+  33% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    transform: scale(0.87);
+  }
+  45% {
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes myAnim2 {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+}
+@keyframes myAnim2 {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+}
 header {
   background-color: #0A121F;
   height: 100px;
@@ -35,6 +108,8 @@ body {
 .menu_link__hover:hover {
   background-color: #FFFFFF;
   color: #3A68B8;
+  transition: all 3s ease-in-out;
+  transform: scale(2) rotate(20deg);
 }
 
 .title3 {
@@ -83,11 +158,18 @@ body {
 .index_button__hover:hover {
   background-color: #FFFFFF;
   color: #3A68B8;
+  transition: all 2s;
+  transform: skew(30deg);
 }
 
 .logobar {
   margin-top: 200px;
   margin-bottom: 99px;
+}
+
+.logoImg:hover {
+  -webkit-animation: myAnim 2s ease 0s 1 normal forwards;
+          animation: myAnim 2s ease 0s 1 normal forwards;
 }
 
 .header_menu {
@@ -146,10 +228,17 @@ h2 {
 .index_two__hover:hover {
   background-color: #FFFFFF;
   color: #3A68B8;
+  transition: all 2s linear;
+  transform: translate(100px) rotate(360deg);
 }
 
 .sectionTwo {
   background: #020A18;
+}
+
+.left:hover {
+  -webkit-animation: myAnim2 2s ease 0s 1 normal forwards;
+          animation: myAnim2 2s ease 0s 1 normal forwards;
 }
 
 .blocks {

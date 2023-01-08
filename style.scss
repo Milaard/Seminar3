@@ -4,45 +4,47 @@
     outline: 0;
     box-sizing: border-box;
 }
+
 @keyframes myAnim {
-	0% {
-		animation-timing-function: ease-out;
-		transform: scale(1);
-		transform-origin: center center;
-	}
+    0% {
+        animation-timing-function: ease-out;
+        transform: scale(1);
+        transform-origin: center center;
+    }
 
-	10% {
-		animation-timing-function: ease-in;
-		transform: scale(0.91);
-	}
+    10% {
+        animation-timing-function: ease-in;
+        transform: scale(0.91);
+    }
 
-	17% {
-		animation-timing-function: ease-out;
-		transform: scale(0.98);
-	}
+    17% {
+        animation-timing-function: ease-out;
+        transform: scale(0.98);
+    }
 
-	33% {
-		animation-timing-function: ease-in;
-		transform: scale(0.87);
-	}
+    33% {
+        animation-timing-function: ease-in;
+        transform: scale(0.87);
+    }
 
-	45% {
-		animation-timing-function: ease-out;
-		transform: scale(1);
-	}
+    45% {
+        animation-timing-function: ease-out;
+        transform: scale(1);
+    }
 }
 
 @keyframes myAnim2 {
-	0%,
-	50%,
-	100% {
-		opacity: 1;
-	}
 
-	25%,
-	75% {
-		opacity: 0;
-	}
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+    }
+
+    25%,
+    75% {
+        opacity: 0;
+    }
 }
 
 @import "vars";
@@ -55,7 +57,7 @@
     -moz-border-radius: $brd;
 }
 
-@mixin txt ($fw, $fs, $lh, $ctxt){
+@mixin txt ($fw, $fs, $lh, $ctxt) {
     font-weight: $fw;
     font-size: $fs;
     line-height: $lh;
@@ -71,7 +73,7 @@
     margin-right: 5px;
 }
 
-@mixin button ($br,$pd, $g, $fw, $fs, $lh, $ctxt, $mt){
+@mixin button ($br, $pd, $g, $fw, $fs, $lh, $ctxt, $mt) {
     border-radius: $br;
     padding: $pd;
     gap: $g;
@@ -92,18 +94,29 @@ body {
 }
 
 .container {
-    width: 1146px;
+    width: 100%;
+    padding: 0 25%;
     margin: 0 auto;
 }
 
 .menu_link {
-    @extend .margin;
-    &__hover:hover {
-        background-color: #FFFFFF;
-        color: $color_button;
-        transition: all 3s ease-in-out;
-        transform: scale(2) rotate(20deg);
-    }
+    // @extend .margin;
+    // &__hover:hover {
+    //     background-color: #FFFFFF;
+    //     color: $color_button;
+    //     transition: all 3s ease-in-out;
+    //     transform: scale(2) rotate(20deg);
+    // }
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
+    color: #FFFFFF;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    margin-right: 20px;
+    text-decoration: none;
 }
 
 
@@ -128,26 +141,29 @@ body {
 
 .index_button {
     @include button (5px, 15px 30px, 10px, 600, 20px, 27px, $ctxt, 50px);
+
     &__hover:hover {
-           background-color: #FFFFFF;
-            color: $color_button;
-            transition: all 2s;
-            transform:skew(30deg);
+        background-color: #FFFFFF;
+        color: $color_button;
+        transition: all 2s;
+        transform: skew(30deg);
     }
 }
 
 .logobar {
-    margin-top: 200px;
-    margin-bottom: 99px;
+    margin-top: 10%;
+    margin-bottom: 10%;
 
 }
- .logoImg:hover {
-	animation: myAnim 2s ease 0s 1 normal forwards;
+
+.logoImg:hover {
+    animation: myAnim 2s ease 0s 1 normal forwards;
 }
 
 .header_menu {
     display: flex;
     justify-content: center;
+    padding-top: 5%;
 }
 
 .flex_box {
@@ -156,12 +172,12 @@ body {
 }
 
 .content_left {
-    width: 604px;
+    width: 60%;
 }
 
 h2 {
     @include txt (700, 40px, 130%, $ctxt);
-    width: 484px;
+    width: 100%;
     font-style: normal;
     margin-bottom: 30px;
 }
@@ -169,21 +185,22 @@ h2 {
 .paragraph {
     @include txt (600, 16px, 160%, $ctxt);
     padding-bottom: 65px;
-    width: 460px;
+    width: 100%;
     font-style: normal;
     opacity: 0.7;
 }
 
 .index_two {
-     @include button (5px,15px 30px, 0, 600, 16px, 22px, $ctxt, 0);
+    @include button (5px, 15px 30px, 0, 600, 16px, 22px, $ctxt, 0);
     flex: none;
     order: 0;
     flex-grow: 0;
+
     &__hover:hover {
         background-color: #FFFFFF;
-         color: $color_button;
-         transition: all 2s linear;
-         transform: translate(100px) rotate(360deg);
+        color: $color_button;
+        transition: all 2s linear;
+        transform: translate(100px) rotate(360deg);
     }
 }
 
@@ -196,13 +213,14 @@ h2 {
     animation: myAnim2 2s ease 0s 1 normal forwards;
 
 }
+
 .blocks {
-    padding-top: 157px;
-    padding-bottom: 264px;
+    padding-top: 15%;
+    padding-bottom: 23%;
 }
 
 h3 {
-    @include  txt (700, 25px, 125%, $ctxt);
+    @include txt (700, 25px, 125%, $ctxt);
     font-style: normal;
     text-align: center;
     opacity: 0.7;
@@ -210,13 +228,21 @@ h3 {
     margin-bottom: 30px;
 }
 
+.grid_box {
+    display: grid;
+    grid-template-rows: repeat(3, 32%);
+    grid-template-columns: repeat(3, 32%);
+    margin-bottom: 23%;
+    grid-gap: 20px;
+}
+
 .item {
     @include brd(30px);
-    width: 362px;
+    width: 100%;
     background: #132035;
     border-radius: 10px;
     text-align: center;
-    padding: 30px;
+    padding: 3%;
 }
 
 .paragraph2 {
@@ -226,37 +252,35 @@ h3 {
 }
 
 .left_bottom {
-    width: 754px;
+    width: 100%;
     background: #132035;
     border-radius: 10px;
     padding: 30px;
     text-align: center;
-    margin-top: 30px;
+    // margin-top: 30px;
+    grid-row: 2/4;
+    grid-column: 1/3;
 }
 
-.block {
-    margin-top: 30px;
+
+.item_2 {
+    margin-top: 20px;
 }
 
 .bottom {
-    margin-bottom: 257px;
+    margin-bottom: 23%;
 }
-
 
 .paragraph3 {
     @include txt (600, 16px, 160%, $ctxt);
-    width: 460px;
+    width: 100%;
     font-style: normal;
     opacity: 0.7;
     margin: 20px 0;
 }
 
-.aboutH2 {
-    width: 548px;
-}
-
 .about {
-    padding-bottom: 221px;
+    padding-bottom: 20%;
 }
 
 footer {
@@ -288,7 +312,7 @@ footer {
     @include txt (500, 16px, 19px, $ctxt);
     font-family: 'Roboto';
     font-style: normal;
-    }
+}
 
 p {
     @include txt (500, 14px, 16px, $ctxt);
@@ -300,7 +324,7 @@ p {
     @include txt (100, 14px, 16px, $ctxt);
     width: 261px;
     font-family: 'Roboto';
-    font-style: italic; 
+    font-style: italic;
     opacity: 0.6;
     flex: none;
     order: 0;
@@ -312,4 +336,122 @@ p {
     margin-top: 24px;
 }
 
+@media screen and(max-width:768px) {
+    .container {
+        width: 100%;
+        padding: 0 10%;
+    }
 
+    .flex_box {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .content_left {
+        width: 100%;
+        margin-bottom: 10%;
+    }
+    .video {
+        width: 100%;
+    }
+    .grid_box {
+        display: grid;
+        grid-template-columns: 1fr;
+
+    }
+
+    .left_bottom {
+        display: none;
+    }
+
+    .right {
+        display: none;
+    }
+
+    .item {
+        margin-left: 20%;
+        width: 60%;
+    }
+
+    .about_left {
+        margin-bottom: 10%;
+    }
+
+    .about_right {
+        margin-bottom: 30%;
+    }
+
+    .block2 {
+        margin-bottom: 3%;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .container {
+        width: 100%;
+        padding: 0 3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .button_box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .flex_box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .main_heading {
+        font-size: 30px;
+    }
+
+    .foto {
+        width: 100%;
+    }
+
+    .left {
+        margin-bottom: 23%;
+    }
+
+    .right1 {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .heading2 {
+        font-size: 30px;
+    }
+
+    .grid_box {
+        width: 100%;
+    }
+
+    .item {
+        width: 100%;
+        margin: 0;
+    }
+
+    .footerAbout2 {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .brands {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+    }
+
+}

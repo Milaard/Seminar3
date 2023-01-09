@@ -93,7 +93,7 @@ body {
     background-color: #08101E;
 }
 
-.container {
+.container_my {
     width: 100%;
     padding: 0 25%;
     margin: 0 auto;
@@ -337,7 +337,7 @@ p {
 }
 
 @media screen and(max-width:768px) {
-    .container {
+    .container_my {
         width: 100%;
         padding: 0 10%;
     }
@@ -388,7 +388,7 @@ p {
 }
 
 @media screen and (max-width: 375px) {
-    .container {
+    .container_my {
         width: 100%;
         padding: 0 3%;
         display: flex;
